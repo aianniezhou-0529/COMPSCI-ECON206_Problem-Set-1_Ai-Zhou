@@ -1,2 +1,50 @@
 colab link: 
 https://colab.research.google.com/drive/1Ub-a7drrUe9tZsbEHUrYKCGG2VlWYSA4?usp=sharing
+
+Code is as follows:
+
+!pip install nashpy
+
+import nashpy as nash
+import numpy as np
+
+# -----------------------------
+# Trust Game setup (Multiplier = 3)
+# Player A (Investor): invest 0, 50, 100
+# Player B (Trustee): return 0%, 50%, 100% of tripled investment
+# -----------------------------
+
+# Payoff formula:
+# u_A = 100 - x + y
+# u_B = 3*x - y
+
+# Rows = A's strategies (0,50,100)
+# Columns = B's strategies (0%,50%,100% of 3x)
+
+# Manually compute payoffs for each cell
+A_payoffs = np.array([
+    [100, 100, 100],       # A invests 0
+    [50, 125, 200],        # A invests 50, B returns 0, 75, 150
+    [0, 150, 300]          # A invests 100, B returns 0, 150, 300
+])
+
+B_payoffs = np.array([
+    [0, 0, 0],             # A invests 0
+    [150, 75, 0],           # B payoff = 3*50 - y
+    [300, 150, 0]           # B payoff = 3*100 - y
+])
+
+# Create the normal-form game
+trust_game = nash.Game(A_payoffs, B_payoffs)
+print("Normal-form Trust Game (Multiplier=3):")
+print(trust_game)
+
+# Compute Nash equilibria (pure and mixed)
+equilibria = list(trust_game.support_enumeration())
+
+print("\nNash Equilibria (pure and mixed strategies):")
+for eq in equilibria:
+    A_strategy, B_strategy = eq
+    print("Player A strategy:", A_strategy)
+    print("Player B strategy:", B_strategy)
+    print("---")
