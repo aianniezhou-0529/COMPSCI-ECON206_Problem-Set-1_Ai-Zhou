@@ -1,4 +1,4 @@
-# COMPSCI-ECON206 Problem Set 1  
+# COMPSCI-ECON206 Problem Set 1 & 2 
 **Author:** Ai Zhou  
 **Date:** September 2025  
 
@@ -29,7 +29,11 @@ We find that while SPNE predicts zero trust, both humans and the LLM sometimes d
 3. **Part 3 — Behavioral Scientist:**  
    - Human experiment (oTree) showed deviations: positive transfers and returns motivated by fairness.  
    - LLM session revealed mixed strategies: fairness-based reasoning early, rational payoff-maximization later, sensitive to framing.  
-   - Proposed **Behavioral SPNE**: equilibrium refinement with utility = monetary payoff + social preferences, and probabilistic choice via quantal response.  
+   - Proposed **Behavioral SPNE**: equilibrium refinement with utility = monetary payoff + social preferences, and probabilistic choice via quantal response.
+
+4. **Part 4 — Mechanism Design**
+   - Auction mechanism design and LLM experiments (PS2)
+   - Code, screenshots, transcripts of GPT-4 & DeepSeek bidding experiments
 
 ---
 
